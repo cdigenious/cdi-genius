@@ -1,0 +1,94 @@
+from zipfile import ZipFile
+
+# Re-create the updated HTML landing page content
+html_content_updated = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CDI Genius</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      padding: 2rem;
+      background-color: #111;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .cta {
+      background-color: #00aaff;
+      color: #000;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .cta:hover {
+      background-color: #0077cc;
+    }
+    section {
+      padding: 2rem;
+    }
+    footer {
+      padding: 1rem;
+      background-color: #111;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CDI Genius</h1>
+    <p>The ultimate wiring and tuning tool for motorcycles, ATVs, dirt bikes, and powersports machines.</p>
+    <button class="cta" onclick="window.location.href='#download'">Download Preview</button>
+  </header>
+  <section>
+    <h2>What It Does</h2>
+    <p>Instantly match CDI wires to your vehicle’s wiring diagram. Watch real-time voltage, RPM, and spark animation. Plug-and-play visual aid for every model and year.</p>
+  </section>
+  <section>
+    <h2>Key Features</h2>
+    <ul style="list-style: none; padding-left: 0;">
+      <li>Color-coded wire matching & animations</li>
+      <li>Live diagnostics: voltage, spark, RPM, and temperature</li>
+      <li>Verified wiring diagrams & user-uploaded data</li>
+      <li>Support for 4, 5, 6-pin CDI units and more</li>
+    </ul>
+  </section>
+  <section id="download">
+    <h2>Get the Preview</h2>
+    <p><a href="CDI_Genius_Preview_v2.apk" download style="color: #00aaff;">Download APK Preview</a></p>
+  </section>
+  <footer>
+    <p>Shane A Riley & Michael Pain | CDI Genius App | All rights reserved</p>
+  </footer>
+</body>
+</html>
+"""
+
+# Save the updated HTML content to a file
+html_file_path_updated = "/mnt/data/index.html"
+with open(html_file_path_updated, "w") as f:
+    f.write(html_content_updated)
+
+# Zip the updated HTML for download
+zip_file_path_updated = "/mnt/data/cdi_genius_landing_renewed.zip"
+with ZipFile(zip_file_path_updated, "w") as zipf:
+    zipf.write(html_file_path_updated, arcname="index.html")
+
+zip_file_path_updated
